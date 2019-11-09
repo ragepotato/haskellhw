@@ -48,11 +48,26 @@ reverseWords = unwords . map reverse . words  -}
             putChar c  
             main  
         else return ()  -}
+
 {-main = do  
     c <- getChar  
     when (c /= ' ') $ do  
         putChar c  
         main  -}
+
 {-main = do  
     rs <- sequence [getLine, getLine, getLine]  
     print rs  -}
+
+{-main = forever $ do  
+    putStr "Give me some input: "  
+    l <- getLine  
+    putStrLn $ map toUpper l -}
+
+main = do   
+    colors <- forM [1,2,3,4] (\a -> do  
+        putStrLn $ "Which color do you associate with the number " ++ show a ++ "?"  
+        color <- getLine  
+        return color)  
+    putStrLn "The colors that you associate with 1, 2, 3 and 4 are: "  
+    mapM putStrLn colors  
